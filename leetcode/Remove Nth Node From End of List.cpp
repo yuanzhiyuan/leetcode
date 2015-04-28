@@ -9,7 +9,8 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode dummy{-1, head};
+        ListNode dummy(-1);
+        dummy.next = head; //一般技巧：创建一个节点，作为头结点之前的节点。免得设置q的时候超出 
         ListNode *p = &dummy, *q = &dummy;
         for (int i = 0; i < n; i++) // q 先走n 步
         q = q->next;
